@@ -1,0 +1,13 @@
+FROM python:3.11.4
+EXPOSE 5000/tcp
+WORKDIR /app
+COPY requirements_1.txt .
+COPY logo/ logo/
+COPY pdf/ pdf/
+COPY templates/ templates/
+COPY static/ static/
+RUN pip install -r requirements_1.txt
+COPY application.py .
+
+# Run your Flask application
+CMD ["python", "application.py"]
